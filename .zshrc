@@ -1,5 +1,4 @@
 # Commit reminder
-
 alias gcm='{ 
   # Prompt to test the changes manually
   read -q "REPLY? Do you done tested it manually? [y/N]: ";
