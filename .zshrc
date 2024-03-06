@@ -5,6 +5,7 @@ alias gcm='{
   echo; 
   if [[ ! $REPLY =~ ^[Yy]$ ]]; then 
     echo "Remember to test manually!"; 
+    make test -C $(pwd); 
     return 1; 
   fi; 
   read -q "REPLY? Do you want to proceed with the commit? [y/N]: "; 
