@@ -1,3 +1,30 @@
+# Assuming that you are working a go project and you want to check the project before committing the changes
+alias check-project='{
+  # Check if the current directory is in the project directory
+  if [ ! -d "/Users/user/Documents/github.com/project" ]; then
+    echo "You are not in the project directory!";
+    return 1;
+  fi;
+
+  # Check unit test
+  go test ./...;
+  if [ $? -ne 0 ]; then
+    echo "Test failed!";
+    return 1;
+  fi;
+
+  # Check lint
+  golangci-lint run --fix;
+
+  if [ $? -ne 0 ]; then
+    echo "Lint failed!";
+    return 1;
+  fi;
+
+  # Ready to commit
+  echo "All good, ready to commit!";
+}'
+
 # Commit reminder
 alias gcm='{ 
   # Prompt to test the changes manually
