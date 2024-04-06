@@ -26,7 +26,7 @@ alias check-project='{
 }'
 
 # Commit reminder
-alias gcm='{ 
+alias gitcommit='{ 
   # Prompt to test the changes manually
   read -q "REPLY? Do you done tested it manually? [y/N]: ";
   echo;
@@ -40,7 +40,6 @@ alias gcm='{
   echo; 
   if [[ ! $REPLY =~ ^[Yy]$ ]]; then 
     echo "Remember to test it using unit test!"; 
-    make test -C $(pwd); 
     return 1; 
   fi; 
 
@@ -57,7 +56,7 @@ alias gcm='{
 }'
 
 # Push reminder
-alias gpl='{ 
+alias gitpush='{ 
   # Prompt to test the changes manually
   read -q "REPLY? Do you done tested it manually? [y/N]: ";
   echo;
@@ -71,7 +70,6 @@ alias gpl='{
   echo; 
   if [[ ! $REPLY =~ ^[Yy]$ ]]; then 
     echo "Remember to test it using unit test!"; 
-    make test -C $(pwd); 
     return 1; 
   fi; 
 
