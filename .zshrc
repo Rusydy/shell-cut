@@ -59,3 +59,15 @@ alias gpl='{
   # If all the prompts are passed, then proceed with the push
   git push; 
 }'
+
+# cherry-pick alias, an alias with a parameter
+alias cherry-picker='f() { 
+  if [ -z "$1" ]; then
+    echo "Please provide the commit hash!";
+    return 1;
+  fi;
+
+  git cherry-pick -m 1 $1;
+
+  echo "Cherry-picking commit $1";
+};f'
